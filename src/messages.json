@@ -1,0 +1,122 @@
+[
+  {
+    "author": {
+      "firstName": "John",
+      "id": "b4878b96-efbc-479a-8291-474ef323dec7",
+      "imageUrl": "https://avatars.githubusercontent.com/u/14123304?v=4"
+    },
+    "createdAt": 1691302050673,
+    "id": "d2b3cf3b-4a55-4f2f-aa9a-26bf69e925f0",
+    "status": "seen",
+    "text": "Est consequuntur explicabo et possimus eos quo minus ipsam omnis. Officia corporis vel et officia fugit dolores. Libero nostrum natus dolor aperiam. Quo aut facilis.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Jane",
+      "id": "06c33e8b-e835-4736-80f4-63f44b66666c",
+      "imageUrl": "https://avatars.githubusercontent.com/u/33809426?v=4"
+    },
+    "createdAt": 1691302050673,
+    "id": "3df3d477-089f-4e4c-975b-bb2a11fc250c",
+    "status": "seen",
+    "text": "Laudantium amet nam voluptas ipsa velit. Non reprehenderit quis est. Est quibusdam numquam iure esse. Et totam in doloribus nesciunt modi ea sit. Cupiditate qui laudantium adipisci sapiente rerum quae.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Jane",
+      "id": "06c33e8b-e835-4736-80f4-63f44b66666c",
+      "imageUrl": "https://avatars.githubusercontent.com/u/33809426?v=4"
+    },
+    "createdAt": 1691302050672,
+    "id": "aba602ad-f2a1-402a-8667-3212f677e36e",
+    "status": "seen",
+    "text": "Quia est et maiores quae sint vero necessitatibus magni. Sit laborum qui suscipit rerum. Ratione tempore eius dolores aliquid dolores dolorem labore.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "John",
+      "id": "b4878b96-efbc-479a-8291-474ef323dec7",
+      "imageUrl": "https://avatars.githubusercontent.com/u/14123304?v=4"
+    },
+    "createdAt": 1691302050671,
+    "id": "5854c0fa-4c7a-4fb2-b75f-d2149dfc1f8a",
+    "status": "seen",
+    "text": "Omnis necessitatibus itaque reprehenderit alias provident mollitia.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "John",
+      "id": "b4878b96-efbc-479a-8291-474ef323dec7",
+      "imageUrl": "https://avatars.githubusercontent.com/u/14123304?v=4"
+    },
+    "createdAt": 1691302050670,
+    "id": "6e6713e9-da4c-4085-9790-248b6e49d295",
+    "status": "seen",
+    "text": "Necessitatibus commodi soluta vitae voluptas sunt veniam.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "John",
+      "id": "b4878b96-efbc-479a-8291-474ef323dec7",
+      "imageUrl": "https://avatars.githubusercontent.com/u/14123304?v=4"
+    },
+    "createdAt": 1691302050669,
+    "id": "c6940405-cce2-4911-8807-c0cbb6208bcd",
+    "status": "seen",
+    "text": "Rem similique et ex quia officia at. Et aspernatur temporibus nam et eaque vero temporibus. Praesentium nemo iusto provident assumenda. Et porro velit dolorem soluta harum cupiditate rem dolore non.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Jane",
+      "id": "06c33e8b-e835-4736-80f4-63f44b66666c",
+      "imageUrl": "https://avatars.githubusercontent.com/u/33809426?v=4"
+    },
+    "createdAt": 1691302050668,
+    "id": "23cd8f17-5b84-4065-b657-ad1e84a8e917",
+    "status": "seen",
+    "text": "Enim non atque non cupiditate dolorem soluta ipsam culpa exercitationem.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "John",
+      "id": "b4878b96-efbc-479a-8291-474ef323dec7",
+      "imageUrl": "https://avatars.githubusercontent.com/u/14123304?v=4"
+    },
+    "createdAt": 1691302050667,
+    "id": "b905aa45-2ac3-466c-9d7f-b5eeccfa56ad",
+    "status": "seen",
+    "text": "Expedita voluptate illum consectetur. Esse autem consequatur quod voluptas magni a. Iusto officiis pariatur dolores qui.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "Jane",
+      "id": "06c33e8b-e835-4736-80f4-63f44b66666c",
+      "imageUrl": "https://avatars.githubusercontent.com/u/33809426?v=4"
+    },
+    "createdAt": 1691302050666,
+    "id": "f3a520a6-b738-47dd-ad32-4cd0280f3795",
+    "status": "seen",
+    "text": "Deleniti ut ducimus rem. Ipsum minus molestias excepturi qui cum neque quidem. Neque quisquam voluptas quibusdam dolorem. Et perferendis velit rem.",
+    "type": "text"
+  },
+  {
+    "author": {
+      "firstName": "John",
+      "id": "b4878b96-efbc-479a-8291-474ef323dec7",
+      "imageUrl": "https://avatars.githubusercontent.com/u/14123304?v=4"
+    },
+    "createdAt": 1691302050665,
+    "id": "944fd7ce-3204-4f70-9e2f-4e4324682d80",
+    "status": "seen",
+    "text": "Est omnis aut veritatis magni sunt veritatis id eligendi recusandae. Dignissimos quae amet sint et quidem iste. Atque qui aliquam ex perspiciatis ducimus dolore quibusdam tempore. Voluptatum cum porro facilis.",
+    "type": "text"
+  }
+]
