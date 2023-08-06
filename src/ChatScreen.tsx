@@ -1,19 +1,48 @@
 import { useActionSheet } from '@expo/react-native-action-sheet';
 import { Chat, MessageType } from '@flyerhq/react-native-chat-ui';
 import { PreviewData } from '@flyerhq/react-native-link-preview';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DocumentPicker from 'react-native-document-picker';
 import FileViewer from 'react-native-file-viewer';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { v4 as uuidv4 } from 'uuid';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import data from './messages.json';
-import type { StackScreenProps } from '@react-navigation/stack';
+import { Linking } from 'react-native';
 
-const ChatScreen = ({ navigation }) => {
+const ChatScreen = ({ navigation }: any) => {
   const { showActionSheetWithOptions } = useActionSheet();
   const [messages, setMessages] = useState(data as MessageType.Any[]);
   const user = { id: '06c33e8b-e835-4736-80f4-63f44b66666c' };
+
+  useEffect(() => {
+    //IOS && ANDROID : 앱이 딥링크로 처음 실행될때, 앱이 열려있지 않을 때
+    Linking.getInitialURL().then((url) => deepLink(url));
+
+    //IOS : 앱이 딥링크로 처음 실행될때, 앱이 열려있지 않을 때 && 앱이 실행 중일 때
+    //ANDROID : 앱이 실행 중일 때
+    Linking.addEventListener('url', addListenerLink);
+
+    return () => remover();
+  }, []);
+
+  const deepLink = (url: string | null) => {
+    if (url) {
+      navigation.navigate('Card', { share: url });
+      console.log(url);
+    }
+  };
+
+  const addListenerLink = ({ url }: any) => {
+    if (url) {
+      navigation.navigate('Map', { share: url });
+      console.log(url);
+    }
+  };
+
+  const remover = () => {
+    Linking.removeEventListener('url');
+  };
 
   const addMessage = (message: MessageType.Any) => {
     setMessages([message, ...messages]);
@@ -82,6 +111,7 @@ const ChatScreen = ({ navigation }) => {
           };
           addMessage(imageMessage);
           console.log(imageMessage);
+          console.log(navigation);
           navigation.navigate('Card');
         }
       }
@@ -95,6 +125,7 @@ const ChatScreen = ({ navigation }) => {
       } catch {}
     } else if (message.type === 'text') {
       console.log(message);
+      navigation.navigate('Card');
     }
   };
 

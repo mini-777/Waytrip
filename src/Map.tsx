@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import MapView, { Marker } from 'react-native-maps';
-const Test = () => {
+const Map = () => {
   // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
 
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Test;
+export default Map;

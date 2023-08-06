@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 
 import GestureFlipView from 'react-native-gesture-flip-card';
 
-export default function Card({ route }) {
+const Card = ({ route }) => {
   const renderFront = () => {
     return (
       <Box style={styles.frontStyle} shadow={5}>
@@ -59,7 +59,7 @@ export default function Card({ route }) {
       </Box>
     </Center>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -85,3 +85,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
+
+export default Card;
