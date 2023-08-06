@@ -18,19 +18,19 @@ const Test = () => {
   return (
     <View style={styles.container}>
       <MapView
-        // camera={{
-        //   center: {
-        //     latitude: 35.90710840112608,
-        //     longitude: 128.61331299999998,
-        //   },
-        //   pitch: 40,
-        //   heading: 20,
-        //   // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
-        //   altitude: 3000,
+        camera={{
+          center: {
+            latitude: 35.90710840112608,
+            longitude: 128.61331299999998,
+          },
+          pitch: 40,
+          heading: 20,
+          // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
+          altitude: 3000,
 
-        //   // Only when using Google Maps.
-        //   zoom: 15,
-        // }}
+          // Only when using Google Maps.
+          zoom: 15,
+        }}
         style={styles.map}
       >
         {/* {chargeLocation.map((item, index) => {
@@ -53,7 +53,7 @@ const Test = () => {
             );
           })} */}
       </MapView>
-      {/* 
+
       <BottomSheet
         ref={bottomSheetRef}
         index={1}
@@ -61,9 +61,9 @@ const Test = () => {
         onChange={handleSheetChanges}
       >
         <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
+          <Text>Skeleton section</Text>
         </View>
-      </BottomSheet> */}
+      </BottomSheet>
     </View>
   );
 };

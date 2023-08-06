@@ -1,12 +1,15 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 
 import { NativeBaseProvider } from 'native-base';
 // import { Loading } from './src/Loading';
 import Main from './src/Main';
 // import Card from './src/Card';
-
+import ChatScreen from './src/ChatScreen';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import Test from './src/Main';
+import Card from 'src/Card';
 const Stack = createStackNavigator();
 
 const MainTheme = {
@@ -20,22 +23,23 @@ const MainTheme = {
 export default function App() {
   return (
     <NativeBaseProvider>
-      <NavigationContainer theme={MainTheme}>
-        <Stack.Navigator>
-          <Stack.Screen
-            name='main'
-            component={Main}
-            options={{ headerShown: false }}
-          />
+      <ActionSheetProvider>
+        <NavigationContainer theme={MainTheme}>
+          <Stack.Navigator>
+            <Stack.Screen
+              name='main'
+              component={ChatScreen}
+              options={{ headerShown: false }}
+            />
 
-          {/*           
-          <Stack.Screen
-            name='Card'
-            component={Card}
-            options={{ headerShown: false }}
-          /> */}
-        </Stack.Navigator>
-      </NavigationContainer>
+            <Stack.Screen
+              name='Card'
+              component={Card}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ActionSheetProvider>
     </NativeBaseProvider>
   );
 }
