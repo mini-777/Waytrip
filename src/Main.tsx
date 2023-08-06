@@ -17,24 +17,23 @@ const Test = () => {
   // renders
   return (
     <View style={styles.container}>
-      <View>
-        <MapView
-          camera={{
-            center: {
-              latitude: 35.90710840112608,
-              longitude: 128.61331299999998,
-            },
-            pitch: 40,
-            heading: 20,
-            // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
-            altitude: 3000,
+      <MapView
+        // camera={{
+        //   center: {
+        //     latitude: 35.90710840112608,
+        //     longitude: 128.61331299999998,
+        //   },
+        //   pitch: 40,
+        //   heading: 20,
+        //   // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
+        //   altitude: 3000,
 
-            // Only when using Google Maps.
-            zoom: 15,
-          }}
-          style={styles.map}
-        >
-          {/* {chargeLocation.map((item, index) => {
+        //   // Only when using Google Maps.
+        //   zoom: 15,
+        // }}
+        style={styles.map}
+      >
+        {/* {chargeLocation.map((item, index) => {
             return (
               <Marker
                 title={item.name}
@@ -53,8 +52,8 @@ const Test = () => {
               />
             );
           })} */}
-        </MapView>
-      </View>
+      </MapView>
+      {/* 
       <BottomSheet
         ref={bottomSheetRef}
         index={1}
@@ -64,7 +63,7 @@ const Test = () => {
         <View style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>
         </View>
-      </BottomSheet>
+      </BottomSheet> */}
     </View>
   );
 };
