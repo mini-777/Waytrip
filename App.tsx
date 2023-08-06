@@ -1,16 +1,22 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
-
+import type { HeaderBackButtonProps } from '@react-navigation/elements';
 import { NativeBaseProvider } from 'native-base';
 // import { Loading } from './src/Loading';
-import Main from './src/Main';
-// import Card from './src/Card';
+import { HeaderBackButton } from '@react-navigation/elements';
+import Map from './src/Map';
+import type { StackParamList } from './src/types';
 import ChatScreen from './src/ChatScreen';
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import Test from './src/Main';
-import Card from 'src/Card';
-const Stack = createStackNavigator();
+import {
+  DefaultTheme,
+  NavigationContainer,
+  useNavigation,
+} from '@react-navigation/native';
+
+import Card from './src/Card';
+
+const Stack = createStackNavigator<StackParamList>();
 
 const MainTheme = {
   ...DefaultTheme,
@@ -20,21 +26,45 @@ const MainTheme = {
   },
 };
 
+const HeaderLeft = (props: HeaderBackButtonProps) => {
+  const navigation = useNavigation();
+  return (
+    <HeaderBackButton
+      {...props}
+      onPress={() => {
+        if (navigation.canGoBack()) {
+          navigation.goBack();
+        }
+      }}
+      testID='back'
+    />
+  );
+};
+
 export default function App() {
   return (
     <NativeBaseProvider>
       <ActionSheetProvider>
         <NavigationContainer theme={MainTheme}>
-          <Stack.Navigator>
+          <Stack.Navigator
+            screenOptions={{
+              headerLeft: HeaderLeft,
+            }}
+          >
             <Stack.Screen
-              name='main'
+              name='ChatScreen'
               component={ChatScreen}
-              options={{ headerShown: false }}
+              options={{ header: () => null }}
             />
 
             <Stack.Screen
               name='Card'
               component={Card}
+              options={{ header: () => null }}
+            />
+            <Stack.Screen
+              name='Map'
+              component={Map}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
@@ -43,5 +73,3 @@ export default function App() {
     </NativeBaseProvider>
   );
 }
-
-// eslint-disable-next-line import/no-default-export
