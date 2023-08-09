@@ -1,20 +1,21 @@
 import { Box, Text, Image, HStack, Center } from 'native-base';
 
 import { StyleSheet } from 'react-native';
-
+import Layout from './Layout';
 import GestureFlipView from 'react-native-gesture-flip-card';
-
-const Card = ({ route }) => {
+import { useState } from 'react';
+import { Button } from 'native-base';
+const Card = ({ navigation, route }: any) => {
+  const [isButton, setIsButton] = useState(true);
   const renderFront = () => {
     return (
       <Box style={styles.frontStyle} shadow={5}>
         <Image
           rounded={'2xl'}
-          size={300}
+          h={'500'}
+          w={'300'}
           alt='image'
-          source={{
-            uri: `http://tong.visitkorea.or.kr/cms/resource/18/2861718_image2_1.jpg`,
-          }}
+          source={require('../assets/image/Detail.png')}
         ></Image>
       </Box>
     );
@@ -36,26 +37,45 @@ const Card = ({ route }) => {
   };
 
   return (
-    <Center safeArea>
-      <Box mt={100}>
-        <HStack>
-          <Text bold fontSize='30' color='#3478F6'>
-            오늘 하루
-          </Text>
-          <Text fontSize={'30'}>를</Text>
-        </HStack>
-        <HStack>
-          <Text bold fontSize={'30'} color='#3478F6'>
-            그림
-          </Text>
-          <Text fontSize={'30'}>으로 저장했어요!</Text>
-        </HStack>
-        <Box mt={50}>
-          <GestureFlipView width={300} height={300}>
-            {renderBack()}
+    <Center>
+      <Layout navigation={navigation} />
+      <Box>
+        <Box padding={5} mt={70}>
+          <HStack>
+            <Text bold fontSize='30' color='#675DE7'>
+              카드
+            </Text>
+            <Text fontSize={'30'}>를 넘겨</Text>
+          </HStack>
+          <HStack>
+            <Text bold fontSize={'30'} color='#675DE7'>
+              상세정보
+            </Text>
+            <Text fontSize={'30'}>를 확인하세요!</Text>
+          </HStack>
+        </Box>
+        <Box>
+          <GestureFlipView width={400} height={500}>
             {renderFront()}
+            {renderBack()}
           </GestureFlipView>
         </Box>
+        <Center mt={30}>
+          {isButton ? (
+            <Button
+              h={60}
+              onPress={() => navigation.navigate('ChatScreen')}
+              w='350'
+              rounded='2xl'
+              colorScheme='indigo'
+              _text={{ fontSize: 20, bold: true }}
+            >
+              여행지 공유하기
+            </Button>
+          ) : (
+            <></>
+          )}
+        </Center>
       </Box>
     </Center>
   );
@@ -70,15 +90,15 @@ const styles = StyleSheet.create({
   },
   frontStyle: {
     width: 300,
-    height: 300,
-    backgroundColor: '#f00',
+    height: 500,
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
   },
   backStyle: {
     width: 300,
-    height: 300,
+    height: 500,
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',

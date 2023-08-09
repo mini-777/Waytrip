@@ -3,7 +3,46 @@ import { Button, Box, Center, Image, Text, VStack, HStack } from 'native-base';
 
 import { Animated } from 'react-native';
 import axios from 'axios';
-const Start = ({ navigation, route }: any) => {
+import Layout from './Layout';
+const Loading = ({ navigation, route }: any) => {
+  const [index, setIndex] = React.useState(0);
+
+  const fadeAnim = React.useRef(new Animated.Value(1)).current;
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 1000,
+        useNativeDriver: true,
+      }).start(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % components.length);
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }).start();
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [fadeAnim]);
+  React.useEffect(() => {
+    console.log(route);
+
+    // axios
+    //   .post('https://emodiary.dcs-hyungjoon.com/api/v1/diary', {
+    //     title: '오늘은 날씨 맑음',
+    //     content:
+    //       '오늘은 아름다운 여름날씨에 감사하며 하루를 시작했습니다. 창문을 열고 상쾌한 바람이 들어오면서 싱그러운 느낌이 전해졌어요. 오늘은 나른한 주말 아침을 보내기로 마음먹었기 때문에 부지런히 일어나지 않았습니다..',
+    //   })
+    //   .then((e) => {
+    //     console.log(e.data.imageResponses);
+
+    //     navigation.navigate('Select', e.data.imageResponses);
+    //   });
+  }, []);
+
   const ComponentA = () => (
     <Center>
       <HStack>
@@ -58,6 +97,7 @@ const Start = ({ navigation, route }: any) => {
 
   return (
     <Center>
+      <Layout navigation={navigation} />
       <Box mt='40'>
         <Animated.View style={{ opacity: fadeAnim }}>
           <ComponentToRender />
@@ -79,4 +119,4 @@ const Start = ({ navigation, route }: any) => {
   );
 };
 
-export default Start;
+export default Loading;

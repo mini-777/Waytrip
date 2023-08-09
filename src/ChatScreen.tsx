@@ -9,7 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import data from './messages.json';
 import { Linking } from 'react-native';
-
+import Layout from './Layout';
+import { Box } from 'native-base';
+// import { Latout } from './src/components/Layout';
 const ChatScreen = ({ navigation }: any) => {
   const { showActionSheetWithOptions } = useActionSheet();
   const [messages, setMessages] = useState(data as MessageType.Any[]);
@@ -22,8 +24,6 @@ const ChatScreen = ({ navigation }: any) => {
     //IOS : 앱이 딥링크로 처음 실행될때, 앱이 열려있지 않을 때 && 앱이 실행 중일 때
     //ANDROID : 앱이 실행 중일 때
     Linking.addEventListener('url', addListenerLink);
-
-    return () => remover();
   }, []);
 
   const deepLink = (url: string | null) => {
@@ -38,10 +38,6 @@ const ChatScreen = ({ navigation }: any) => {
       navigation.navigate('Map', { share: url });
       console.log(url);
     }
-  };
-
-  const remover = () => {
-    Linking.removeEventListener('url');
   };
 
   const addMessage = (message: MessageType.Any) => {
@@ -155,19 +151,17 @@ const ChatScreen = ({ navigation }: any) => {
   };
 
   return (
-    <SafeAreaProvider>
-      <Chat
-        messages={messages}
-        onAttachmentPress={handleAttachmentPress}
-        onMessagePress={handleMessagePress}
-        onPreviewDataFetched={handlePreviewDataFetched}
-        onSendPress={handleSendPress}
-        showUserNames={true}
-        showUserAvatars={true}
-        enableAnimation={true}
-        user={user}
-      />
-    </SafeAreaProvider>
+    <Chat
+      messages={messages}
+      onAttachmentPress={handleAttachmentPress}
+      onMessagePress={handleMessagePress}
+      onPreviewDataFetched={handlePreviewDataFetched}
+      onSendPress={handleSendPress}
+      showUserNames={true}
+      showUserAvatars={true}
+      enableAnimation={true}
+      user={user}
+    />
   );
 };
 

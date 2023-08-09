@@ -2,12 +2,18 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 import type { HeaderBackButtonProps } from '@react-navigation/elements';
-import { NativeBaseProvider } from 'native-base';
+import {
+  ArrowBackIcon,
+  NativeBaseProvider,
+  Pressable,
+  useColorModeValue,
+} from 'native-base';
 // import { Loading } from './src/Loading';
 import { HeaderBackButton } from '@react-navigation/elements';
 import Map from './src/Map';
 import type { StackParamList } from './src/types';
 import ChatScreen from './src/ChatScreen';
+import Loading from './src/Loading';
 import {
   DefaultTheme,
   NavigationContainer,
@@ -29,15 +35,20 @@ const MainTheme = {
 const HeaderLeft = (props: HeaderBackButtonProps) => {
   const navigation = useNavigation();
   return (
-    <HeaderBackButton
-      {...props}
+    <Pressable
       onPress={() => {
         if (navigation.canGoBack()) {
           navigation.goBack();
         }
       }}
-      testID='back'
-    />
+    >
+      <ArrowBackIcon
+        {...props}
+        mx={3}
+        size={5}
+        color={useColorModeValue('black', 'white')}
+      />
+    </Pressable>
   );
 };
 
@@ -52,15 +63,25 @@ export default function App() {
             }}
           >
             <Stack.Screen
-              name='ChatScreen'
+              name='제주 여행'
               component={ChatScreen}
-              options={{ header: () => null }}
+              options={{
+                headerLeft: (props) => <HeaderLeft {...props} />,
+              }}
+            />
+
+            <Stack.Screen
+              name='Loading'
+              component={Loading}
+              options={{ headerShown: false }}
             />
 
             <Stack.Screen
               name='Card'
               component={Card}
-              options={{ header: () => null }}
+              options={{
+                headerShown: false,
+              }}
             />
             <Stack.Screen
               name='Map'
