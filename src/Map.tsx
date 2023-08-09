@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import MapView, { Marker } from 'react-native-maps';
 const Map = () => {
+  const [chargeLocation, setChargeLocation] = useState([{ item: {} }]);
   // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
 
@@ -33,25 +34,25 @@ const Map = () => {
         }}
         style={styles.map}
       >
-        {/* {chargeLocation.map((item, index) => {
-            return (
-              <Marker
-                title={item.name}
-                description={item.content}
-                image={require('../image/marker.png')}
-                key={index}
-                onPress={() => {
-                  setLoading(false);
-                  setCurrentCharge(item);
-                  console.log(item);
-                }}
-                coordinate={{
-                  latitude: item.latitude,
-                  longitude: item.longitude,
-                }}
-              />
-            );
-          })} */}
+        {chargeLocation.map((item, index) => {
+          return (
+            <Marker
+              title={item.name}
+              description={item.content}
+              image={require('../image/marker.png')}
+              key={index}
+              onPress={() => {
+                setLoading(false);
+                setCurrentCharge(item);
+                console.log(item);
+              }}
+              coordinate={{
+                latitude: item.latitude,
+                longitude: item.longitude,
+              }}
+            />
+          );
+        })}
       </MapView>
 
       <BottomSheet
