@@ -19,9 +19,13 @@ import {
   NavigationContainer,
   useNavigation,
 } from '@react-navigation/native';
-
+import Start from './src/Start';
 import Card from './src/Card';
-
+import Where from './src/Where';
+import SearchWhere from './src/SearchWhere';
+import When from './src/When';
+import Invite from './src/Invite';
+import Deploy from './src/Deploy';
 const Stack = createStackNavigator<StackParamList>();
 
 const MainTheme = {
@@ -63,10 +67,52 @@ export default function App() {
             }}
           >
             <Stack.Screen
-              name='제주 여행'
+              name='Home'
+              component={Start}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Where'
+              component={Where}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='When'
+              component={When}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='SearchWhere'
+              component={SearchWhere}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Invite'
+              component={Invite}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='Deploy'
+              component={Deploy}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name='ChatScreen'
               component={ChatScreen}
               options={{
-                headerLeft: (props) => <HeaderLeft {...props} />,
+                headerShown: false,
               }}
             />
 

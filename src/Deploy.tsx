@@ -10,22 +10,16 @@ import {
   useColorModeValue,
 } from 'native-base';
 
-const Layout = ({ navigation }: any) => {
+const Deploy = ({ navigation }: any) => {
   return (
     <HStack position='absolute' left={0} top={70} right={0} px={4} zIndex={2}>
       <HStack py={2} alignItems='center' w='100%'>
         <Pressable
           onPress={() => {
-            if (navigation.canGoBack()) {
-              navigation.goBack();
-            }
+            navigation.navigate('Loading');
           }}
         >
-          <ArrowBackIcon
-            mx={3}
-            size={5}
-            color={useColorModeValue('black', 'white')}
-          />
+          <Icon name='rocket' />
         </Pressable>
 
         <Heading
@@ -41,4 +35,4 @@ const Layout = ({ navigation }: any) => {
   );
 };
 
-export default Layout;
+export default Deploy;

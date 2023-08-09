@@ -41,6 +41,10 @@ const Loading = ({ navigation, route }: any) => {
 
     //     navigation.navigate('Select', e.data.imageResponses);
     //   });
+    // 3초 후에 코드를 실행합니다.
+    setTimeout(() => {
+      navigation.navigate('Map');
+    }, 30000);
   }, []);
 
   const ComponentA = () => (

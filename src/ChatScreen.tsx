@@ -8,37 +8,14 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import { v4 as uuidv4 } from 'uuid';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import data from './messages.json';
-import { Linking } from 'react-native';
 import Layout from './Layout';
 import { Box } from 'native-base';
+import Deploy from './Deploy';
 // import { Latout } from './src/components/Layout';
 const ChatScreen = ({ navigation }: any) => {
   const { showActionSheetWithOptions } = useActionSheet();
   const [messages, setMessages] = useState(data as MessageType.Any[]);
   const user = { id: '06c33e8b-e835-4736-80f4-63f44b66666c' };
-
-  useEffect(() => {
-    //IOS && ANDROID : 앱이 딥링크로 처음 실행될때, 앱이 열려있지 않을 때
-    Linking.getInitialURL().then((url) => deepLink(url));
-
-    //IOS : 앱이 딥링크로 처음 실행될때, 앱이 열려있지 않을 때 && 앱이 실행 중일 때
-    //ANDROID : 앱이 실행 중일 때
-    Linking.addEventListener('url', addListenerLink);
-  }, []);
-
-  const deepLink = (url: string | null) => {
-    if (url) {
-      navigation.navigate('Card', { share: url });
-      console.log(url);
-    }
-  };
-
-  const addListenerLink = ({ url }: any) => {
-    if (url) {
-      navigation.navigate('Map', { share: url });
-      console.log(url);
-    }
-  };
 
   const addMessage = (message: MessageType.Any) => {
     setMessages([message, ...messages]);
@@ -122,6 +99,8 @@ const ChatScreen = ({ navigation }: any) => {
     } else if (message.type === 'text') {
       console.log(message);
       navigation.navigate('Card');
+    } else if (message.type === 'image') {
+      navigation.navigate('Loading');
     }
   };
 
